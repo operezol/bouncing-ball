@@ -1,4 +1,4 @@
-const BOARD_SIZE = 100;
+const BOARD_SIZE = 200;
 let xUnit = 0;
 let yUnit = 0;
 let lightColor;
@@ -45,7 +45,7 @@ class BouncingBall {
       boardSquares[this.x][nextY].color = this.color === lightColor ? darkColor : lightColor;
     }
     if(nextX > 0 && nextX < BOARD_SIZE && nextY > 0 && nextY < BOARD_SIZE && boardSquares[nextX][nextY].color === this.color) {
-      boardSquares[this.x][this.y].color = this.color;
+      boardSquares[nextX][nextY].color = this.color;
     }
     this.x += this.xVelocity;
     this.y += this.yVelocity;
