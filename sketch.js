@@ -44,6 +44,9 @@ class BouncingBall {
       this.yVelocity *= -1;
       boardSquares[this.x][nextY].color = this.color === lightColor ? darkColor : lightColor;
     }
+    if(nextX > 0 && nextX < BOARD_SIZE && nextY > 0 && nextY < BOARD_SIZE && boardSquares[nextX][nextY].color === this.color) {
+      boardSquares[this.x][this.y].color = this.color;
+    }
     this.x += this.xVelocity;
     this.y += this.yVelocity;
   };
@@ -89,4 +92,7 @@ function windowResized() {
   xUnit = windowWidth / BOARD_SIZE;
   yUnit = windowHeight / BOARD_SIZE;
   ballDiameter = min(xUnit, yUnit);
+  initBoardSquares();
+  lightBouncingBall = new BouncingBall(lightColor,1,1);
+  darkBouncingBall = new BouncingBall(darkColor,-1,-1);
 };
