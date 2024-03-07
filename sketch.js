@@ -1,4 +1,4 @@
-const BOARD_SIZE = 500;
+const BOARD_SIZE = 100;
 let xUnit = 0;
 let yUnit = 0;
 let lightColor;
